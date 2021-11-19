@@ -1,13 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import connectDB from '../config/mongoose.config'
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Mechita</title>
-        {/* <meta name="description" content="create by banchi" /> */}
+        <title>Store </title>
+        <meta name="description" content="create by banchi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
