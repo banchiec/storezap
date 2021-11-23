@@ -1,7 +1,7 @@
 import connectDB from "../../../services/mongoose.services"
 import User from '../../../models/user.model'
 
-const loginUser = async (req, res) => {
+const createUser = (req, res) => {
     if (req.method === 'POST') {
         const { name, email, password } = req.body
         console.log(name, email, password)
@@ -13,8 +13,18 @@ const loginUser = async (req, res) => {
                     email,
                     password
                 })
-                const usercreated = await user.save()
-                return res.status(200).send(usercreated)
+                // const usercreated = user.save()
+
+                User
+                    .create(user)
+                    .then((data) => {
+                        console.log(data)
+                        return res.status(200).send(data)
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+
             } catch (error) {
                 return res.status(500).send(error)
             }
@@ -31,4 +41,4 @@ const loginUser = async (req, res) => {
     }
 }
 
-export default connectDB(loginUser)
+export default connectDB(createUser)

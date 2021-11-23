@@ -11,7 +11,7 @@ const connectDB = handler => async (req, res) => {
         bufferCommands: false,
         //bufferMaxEntries: 0,
         //useFindAndModify: true,
-        // useCreateIndex: true
+        //useCreateIndex: true
     })
     return handler(req, res)
 }

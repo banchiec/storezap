@@ -1,12 +1,13 @@
 const { Schema, model } = require('mongoose')
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     name: {
         type: String,
         required: true
     },
     email: {
         type: String,
+        unique: true,
         required: true
     },
     password: {
@@ -19,5 +20,5 @@ const userSchema = new Schema({
     }
 })
 
-global.User = global.User || model("User", userSchema)
+global.User = global.User || model("User", UserSchema)
 export default global.User

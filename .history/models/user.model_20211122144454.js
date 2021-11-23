@@ -1,13 +1,13 @@
-const { Schema, model } = require('mongoose')
-
-const userSchema = new Schema({
+import mongoose from 'mongoose'
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -19,5 +19,6 @@ const userSchema = new Schema({
     }
 })
 
-global.User = global.User || model("User", userSchema)
-export default global.User
+
+global.User = global.User || model("User", UserSchema)
+module.exports = Mongoose

@@ -6,12 +6,10 @@ const connectDB = handler => async (req, res) => {
         return handler(req, res)
     }
     await mongoose.connect(process.env.mongodburl, {
-        useNewUrlParser: true,
         useUnifiedTopology: true,
-        bufferCommands: false,
-        //bufferMaxEntries: 0,
-        //useFindAndModify: true,
-        // useCreateIndex: true
+        // useFindAndModify: false,
+        // useCreateIndex: true,
+        // useNewUrlParser: true,
     })
     return handler(req, res)
 }

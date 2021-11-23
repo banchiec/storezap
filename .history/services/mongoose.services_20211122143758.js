@@ -9,9 +9,11 @@ const connectDB = handler => async (req, res) => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         bufferCommands: false,
-        //bufferMaxEntries: 0,
-        //useFindAndModify: true,
-        // useCreateIndex: true
+        bufferMaxEntries: 0,
+        useFindAndModify: true,
+        useCreateIndex: true
+        useFindAndModify: false,
+        // useCreateIndex: true,
     })
     return handler(req, res)
 }

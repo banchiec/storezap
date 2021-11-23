@@ -10,8 +10,8 @@ const connectDB = handler => async (req, res) => {
         useUnifiedTopology: true,
         bufferCommands: false,
         //bufferMaxEntries: 0,
-        //useFindAndModify: true,
-        // useCreateIndex: true
+        useFindAndModify: true,
+        useCreateIndex: true
     })
     return handler(req, res)
 }
